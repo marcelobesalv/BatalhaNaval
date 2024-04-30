@@ -1,4 +1,5 @@
 from func import *
+import random
 tmap = int(input('Tamanho do mapa: '))
 mapj = cria_mapa(tmap)
 mapc = mapj
