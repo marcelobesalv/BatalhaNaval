@@ -32,14 +32,18 @@ def foi_derrotado(m):
         if 'N' in i: return False
     return True
 
-def escolher_paises():
-    nacaoc = PAISES[random.choice(PAISES)]
-
+def escolher_paises(PAISES):
+    
     while True:
         nacaoj = input('Nação: ')
-        if nacaoj in PAISES and nacaoj != nacaoc:
+        if nacaoj in PAISES:
             break
-    return [nacaoc, nacaoj]
+    while True:
+        nacaoc = random.choice(list(PAISES.keys()))
+        if nacaoc != nacaoj:
+            break
+    return [PAISES[nacaoc],PAISES[nacaoj]]
+
 
 def cria_lista_navios(pais):
     ln = []
