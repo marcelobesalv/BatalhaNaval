@@ -1,4 +1,4 @@
-from func.py import *
+from func import *
 tmap = int(input('Tamanho do mapa: '))
 mapj = cria_mapa(tmap)
 mapc = mapj
