@@ -48,8 +48,9 @@ def cria_lista_navios(pais):
             ln.append(CONFIGURACAO[tipo])
     return ln
 
-def acertou_navio(m):
+def ataque(m): 
     while True:
+        print(m)
         erro = 0
         x = input('Letra: ').upper()
         if x not in ALFABETO or ALFABETO.index(x) > len(m)-1:
@@ -63,8 +64,13 @@ def acertou_navio(m):
                 erro += 1
         if not(erro):
             y -= 1
-            if m[x][y] == 'N':
-                return True
-            elif m[x][y] == ' ':
-                return False
+            print('x:', x, type(x), 'y:', y, type(y))
+            if m[y][x] == 'N':
+                print('fogo')
+                m[y][x] = 'F'
+                return m
+            elif m[y][x] == ' ':
+                print('agua')
+                m[y][x] = 'A'
+                return m
             else: print('Ataque inválido')
