@@ -51,7 +51,18 @@ def cria_lista_navios(pais):
         for i in range(qnt):
             ln.append(CONFIGURACAO[tipo])
     return ln
-
+def ataque_comp(m):
+    y = random.randint(0, len(m)-1)
+    x = random.randint(0, len(m)-1)
+    if m[y][x] == 'N':
+        print('fogo')
+        m[y][x] = 'F'
+        return m
+    elif m[y][x] == ' ':
+        print('agua')
+        m[y][x] = 'A'
+        return m
+    else: print('Ataque inválido')
 def ataque(m):
     while True:
         print(m)
