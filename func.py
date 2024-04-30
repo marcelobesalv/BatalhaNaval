@@ -44,7 +44,7 @@ def escolher_paises(PAISES):
         nacaoc = random.choice(list(PAISES.keys()))
         if nacaoc != nacaoj:
             break
-    return [PAISES[nacaoc],PAISES[nacaoj]]
+    return [nacaoc,nacaoj]
 
 
 def cria_lista_navios(pais):
