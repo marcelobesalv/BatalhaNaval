@@ -47,3 +47,24 @@ def cria_lista_navios(pais):
         for i in range(qnt):
             ln.append(CONFIGURACAO[tipo])
     return ln
+
+def acertou_navio(m):
+    while True:
+        erro = 0
+        x = input('Letra: ').upper()
+        if x not in ALFABETO or ALFABETO.index(x) > len(m)-1:
+            print('Letra inválida')
+            erro += 1
+        x = ALFABETO.index(x)
+        if not(erro):
+            y = int(input('Número: '))
+            if y > len(m[0]): 
+                print('Numero inválido')
+                erro += 1
+        if not(erro):
+            y -= 1
+            if m[x][y] == 'N':
+                return True
+            elif m[x][y] == ' ':
+                return False
+            else: print('Ataque inválido')
