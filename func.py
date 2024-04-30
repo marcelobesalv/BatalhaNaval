@@ -35,11 +35,12 @@ def foi_derrotado(m):
     return True
 
 def escolher_paises(PAISES):
-    
+    print('Escolha uma das seguintes nações: Brasil, França, Austrália, Rússia, Japão')
     while True:
-        nacaoj = input('Nação: ')
+        nacaoj = input('Nação: ').capitalize()
         if nacaoj in PAISES:
             break
+        else: print('Nação inválida')
     while True:
         nacaoc = random.choice(list(PAISES.keys()))
         if nacaoc != nacaoj:
