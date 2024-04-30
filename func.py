@@ -79,3 +79,41 @@ def ataque(m):
                 m[y][x] = 'A'
                 return m
             else: print('Ataque inválido')
+def aloca_navios_jogador(m,ln):
+    
+    for i in ln:
+        l = len(m)+1
+        c = len(m)+1
+        o = 'v'
+        n = 0 
+        while not(posicao_suporta(m, i, l, c, o)):
+            print('tamanho:',i)
+            if n >=1:
+                print('posicao invalida')
+            l = input('Letra: ').upper()
+            while l not in ALFABETO or ALFABETO.index(l) > len(m)-1 or l =='':
+                print('Letra inválida')
+                l = input('Letra: ').upper()
+                 
+            c = input('Número: ')
+            while not(c.isdigit()) or int(c) > len(m[0]):
+                     
+                print('Numero inválido')
+                c = input('Número: ')
+                
+            
+            o = input('h/v')
+            while o!='h' and o!='v':
+                print('opcao invalida')
+                o = input('h/v')
+            
+            l = ALFABETO.index(l)
+            c = int(c)
+            c -= 1
+            n+=1 
+        for j in range(i):
+            if o == 'v':
+                m[l+j][c] = 'N'
+            else: m[l][c+j] = 'N'
+        print(m)
+    return m
