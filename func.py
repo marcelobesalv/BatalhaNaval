@@ -52,23 +52,24 @@ def cria_lista_navios(pais):
             ln.append(CONFIGURACAO[tipo])
     return ln
 
-def ataque(m): 
+def ataque(m):
     while True:
         print(m)
         erro = 0
         x = input('Letra: ').upper()
         if x not in ALFABETO or ALFABETO.index(x) > len(m)-1:
             print('Letra inválida')
-            erro += 1
-        x = ALFABETO.index(x)
+            erro += 1   
         if not(erro):
-            y = int(input('Número: '))
-            if y > len(m[0]): 
+            y = input('Número: ')
+            if not(y.isdigit()) or int(y) > len(m[0]): 
                 print('Numero inválido')
                 erro += 1
         if not(erro):
+            x = ALFABETO.index(x)
+            y = int(y)
             y -= 1
-            print('x:', x, type(x), 'y:', y, type(y))
+            print(ALFABETO[x], str(y+1))
             if m[y][x] == 'N':
                 print('fogo')
                 m[y][x] = 'F'
