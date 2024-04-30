@@ -1,3 +1,5 @@
+import random
+from config import *
 def cria_mapa(n):
     return [[' ']*n for i in range(n)]
 
