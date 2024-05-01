@@ -5,7 +5,7 @@ jogar = True
 continuar = ''
 while jogar:
   mapj = cria_mapa(10)
-  mapc = mapj
+  mapc = cria_mapa(10)
   paiscj = escolher_paises(config.PAISES)
   paisj = paiscj[1]
   paisc = paiscj[0]
