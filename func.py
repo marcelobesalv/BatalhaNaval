@@ -64,19 +64,24 @@ def cria_lista_navios(pais):
         for i in range(qnt):
             ln.append(CONFIGURACAO[tipo])
     return ln
+
+def encontra_coords(x, y):
+    l = ALFABETO[x]
+    n = str(y+1)
+    return l+n
     
 def ataque_comp(m):
     y = random.randint(0, len(m)-1)
     x = random.randint(0, len(m)-1)
     if m[y][x] == 'N':
-        print('Computador: fogo!')
+        print(f'Computador atacou {encontra_coords(x, y)}: fogo!')
         m[y][x] = 'F'
         return m
     elif m[y][x] == ' ':
-        print('Computador: água!')
+        print(f'Computador atacou {encontra_coords(x, y)}: água!')
         m[y][x] = 'A'
         return m
-        
+
 def ataque(m):
     while True:
         mc = deepcopy(m)
@@ -105,11 +110,11 @@ def ataque(m):
             y -= 1
             print(ALFABETO[x], str(y+1))
             if m[y][x] == 'N':
-                print('Jogador: fogo!')
+                print(f'Jogador atacou {encontra_coords(x, y)}: fogo!')
                 m[y][x] = 'F'
                 return m
             elif m[y][x] == ' ':
-                print('Jogador: água!')
+                print(f'Jogador atacou {encontra_coords(x, y)}: água!')
                 m[y][x] = 'A'
                 return m
             else: print('Ataque inválido')
