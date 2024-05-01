@@ -45,7 +45,7 @@ def foi_derrotado(m):
     return True
 
 def escolher_paises(PAISES):
-    print('Escolha uma das seguintes nações: Brasil, França, Austrália, Rússia, Japão')
+    print('\n\nEscolha uma das seguintes nações: Brasil, França, Austrália, Rússia, Japão\n')
     while True:
         nacaoj = input('Nação: ').capitalize()
         if nacaoj in PAISES:
@@ -76,25 +76,32 @@ def ataque_comp(m):
     if m[y][x] == 'N':
         print(f'Computador atacou {encontra_coords(x, y)}: fogo!')
         m[y][x] = 'F'
+        print('Mapa do jogador:')
+        for i in m:
+            print(i)
         return m
     elif m[y][x] == ' ':
         print(f'Computador atacou {encontra_coords(x, y)}: água!')
         m[y][x] = 'A'
+        print('Mapa do jogador:')
+        for i in m:
+            print(i)
         return m
-
+        
 def ataque(m):
     while True:
         mc = deepcopy(m)
-        print('m:')
+        print('Mapa do computador (gabarito):')
         for i in m:
             print(i)
-        print('mc:')
+        print('Mapa do computador:')
         for i in range(len(mc)):
             for j in range(len(mc[i])):
                 if mc[i][j] == 'N':
                     mc[i][j] = ' '
             print(mc[i])
         erro = 0
+        print('\nCoordenadas do ataque:\n')
         x = input('Letra: ').upper()
         if x not in ALFABETO or ALFABETO.index(x) > len(m)-1:
             print('Letra inválida')
@@ -119,7 +126,7 @@ def ataque(m):
                 return m
             else: print('Ataque inválido')
                 
-def aloca_navios_jogador(m,ln):
+def aloca_navios_jogador(m, ln):
     for linha in m:
             print(linha)
     for i in ln:
@@ -128,7 +135,7 @@ def aloca_navios_jogador(m,ln):
         o = 'v'
         n = 0 
         while not(posicao_suporta(m, i, c, l, o)):
-            print('Tamanho do navio:',i)
+            print('\nTamanho do próximo navio:',i, '\nCoordenadas do navio:\n')
             if n >=1:
                 print('posicao invalida')
             l = input('Letra: ').upper()
