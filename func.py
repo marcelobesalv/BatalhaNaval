@@ -69,7 +69,16 @@ def encontra_coords(x, y):
     l = ALFABETO[x]
     n = str(y+1)
     return l+n
-    
+
+def adiciona_coords(m):
+    m2 = deepcopy(m)
+    ll = [' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    ln = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    for i in range(len(m2)):
+        m2[i].insert(0, ln[i])
+    m2.insert(0, ll)
+    return m2
+
 def ataque_comp(m):
     y = random.randint(0, len(m)-1)
     x = random.randint(0, len(m)-1)
@@ -92,14 +101,15 @@ def ataque(m):
     while True:
         mc = deepcopy(m)
         print('Mapa do computador (gabarito):')
-        for i in m:
+        for i in adiciona_coords(m):
             print(i)
         print('Mapa do computador:')
         for i in range(len(mc)):
             for j in range(len(mc[i])):
                 if mc[i][j] == 'N':
                     mc[i][j] = ' '
-            print(mc[i])
+        for i in adiciona_coords(mc):
+            print i
         erro = 0
         print('\nCoordenadas do ataque:\n')
         x = input('Letra: ').upper()
@@ -125,9 +135,9 @@ def ataque(m):
                 return m
             else: print('Ataque inválido')
                 
-def aloca_navios_jogador(m, ln):
-    for linha in m:
-            print(linha)
+def aloca_navios_jogador(m,ln):
+    for i in adiciona_coords(m):
+            print(i)
     for i in ln:
         l = len(m)+1
         c = len(m)+1
@@ -161,6 +171,6 @@ def aloca_navios_jogador(m, ln):
             if o == 'v':
                 m[c+j][l] = 'N'
             else: m[c][l+j] = 'N'
-        for linha in m:
-            print(linha)
+        for i in adiciona_coords(m):
+            print(i)
     return m
