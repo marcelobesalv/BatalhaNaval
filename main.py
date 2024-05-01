@@ -21,13 +21,11 @@ while jogar:
   else:
     print('Você perdeu')
   while True:
-    contiuar = input('Quer jogar mais uma vez? \n', '(Sim/Não)').lower()
-    if continuar != 'sim' and continuar != 'nâo' and continuar != 'nao':
-      continue
-    elif continuar == 'sim':
+    continuar = input('Quer jogar mais uma vez? \n(Sim/Não)\n').lower()
+    if continuar == 'sim':
       break
     elif continuar == 'nao' or continuar == 'não':
       jogar = False
       break
-    
-    
+
+
