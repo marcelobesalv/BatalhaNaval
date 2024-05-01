@@ -86,15 +86,15 @@ def ataque_comp(m):
         print(f'Computador atacou {encontra_coords(x, y)}: fogo!')
         m[y][x] = 'F'
         print('Mapa do jogador:')
-        for i in m:
-            print(i)
+        for k in adiciona_coords(m):
+            print(k)
         return m
     elif m[y][x] == ' ':
         print(f'Computador atacou {encontra_coords(x, y)}: água!')
         m[y][x] = 'A'
         print('Mapa do jogador:')
-        for i in m:
-            print(i)
+        for k in adiciona_coords(m):
+            print(k)
         return m
         
 def ataque(m):
@@ -109,7 +109,7 @@ def ataque(m):
                 if mc[i][j] == 'N':
                     mc[i][j] = ' '
         for i in adiciona_coords(mc):
-            print i
+            print (i)
         erro = 0
         print('\nCoordenadas do ataque:\n')
         x = input('Letra: ').upper()
@@ -136,13 +136,13 @@ def ataque(m):
             else: print('Ataque inválido')
                 
 def aloca_navios_jogador(m,ln):
-    for i in adiciona_coords(m):
-            print(i)
     for i in ln:
         l = len(m)+1
         c = len(m)+1
         o = 'v'
-        n = 0 
+        n = 0
+        for k in adiciona_coords(m):
+            print(k)
         while not(posicao_suporta(m, i, c, l, o)):
             print('\nTamanho do próximo navio:',i, '\nCoordenadas do navio:\n')
             if n >=1:
@@ -171,6 +171,5 @@ def aloca_navios_jogador(m,ln):
             if o == 'v':
                 m[c+j][l] = 'N'
             else: m[c][l+j] = 'N'
-        for i in adiciona_coords(m):
-            print(i)
+        
     return m
