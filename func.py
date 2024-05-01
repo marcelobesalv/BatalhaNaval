@@ -63,21 +63,31 @@ def cria_lista_navios(pais):
         for i in range(qnt):
             ln.append(CONFIGURACAO[tipo])
     return ln
+    
 def ataque_comp(m):
     y = random.randint(0, len(m)-1)
     x = random.randint(0, len(m)-1)
     if m[y][x] == 'N':
-        print('fogo')
+        print('Computador: fogo!')
         m[y][x] = 'F'
         return m
     elif m[y][x] == ' ':
-        print('agua')
+        print('Computador: água!')
         m[y][x] = 'A'
         return m
-    else: print('Ataque inválido')
+        
 def ataque(m):
     while True:
-        print(m)
+        # mc = m
+        print('m:')
+        for i in m:
+            print(i)
+        print('mc:')
+        # for i in range(len(mc)):
+        #     for j in range(len(mc[i])):
+        #         if mc[i][j] == 'N':
+        #             mc[i][j] = ' '
+        #     print(mc[i])
         erro = 0
         x = input('Letra: ').upper()
         if x not in ALFABETO or ALFABETO.index(x) > len(m)-1:
@@ -94,23 +104,25 @@ def ataque(m):
             y -= 1
             print(ALFABETO[x], str(y+1))
             if m[y][x] == 'N':
-                print('fogo')
+                print('Jogador: fogo!')
                 m[y][x] = 'F'
                 return m
             elif m[y][x] == ' ':
-                print('agua')
+                print('Jogador: água!')
                 m[y][x] = 'A'
                 return m
             else: print('Ataque inválido')
+                
 def aloca_navios_jogador(m,ln):
-    
+    for linha in m:
+            print(linha)
     for i in ln:
         l = len(m)+1
         c = len(m)+1
         o = 'v'
         n = 0 
-        while not(posicao_suporta(m, i, l, c, o)):
-            print('tamanho:',i)
+        while not(posicao_suporta(m, i, c, l, o)):
+            print('Tamanho do navio:',i)
             if n >=1:
                 print('posicao invalida')
             l = input('Letra: ').upper()
@@ -121,14 +133,13 @@ def aloca_navios_jogador(m,ln):
             c = input('Número: ')
             while not(c.isdigit()) or int(c) > len(m[0]):
                      
-                print('Numero inválido')
+                print('Número inválido')
                 c = input('Número: ')
-                
-            
-            o = input('h/v')
+
+            o = input('Orientação (h/v): ')
             while o!='h' and o!='v':
-                print('opcao invalida')
-                o = input('h/v')
+                print('Opção inválida')
+                o = input('Orientação (h/v): ')
             
             l = ALFABETO.index(l)
             c = int(c)
@@ -136,7 +147,8 @@ def aloca_navios_jogador(m,ln):
             n+=1 
         for j in range(i):
             if o == 'v':
-                m[l+j][c] = 'N'
-            else: m[l][c+j] = 'N'
-        print(m)
+                m[c+j][l] = 'N'
+            else: m[c][l+j] = 'N'
+        for linha in m:
+            print(linha)
     return m
