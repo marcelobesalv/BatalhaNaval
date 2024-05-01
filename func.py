@@ -1,5 +1,6 @@
 import random
 from config import *
+from copy import deepcopy
 def cria_mapa(n):
     return [[' ']*n for i in range(n)]
 
@@ -78,16 +79,16 @@ def ataque_comp(m):
         
 def ataque(m):
     while True:
-        # mc = m
+        mc = deepcopy(m)
         print('m:')
         for i in m:
             print(i)
         print('mc:')
-        # for i in range(len(mc)):
-        #     for j in range(len(mc[i])):
-        #         if mc[i][j] == 'N':
-        #             mc[i][j] = ' '
-        #     print(mc[i])
+        for i in range(len(mc)):
+            for j in range(len(mc[i])):
+                if mc[i][j] == 'N':
+                    mc[i][j] = ' '
+            print(mc[i])
         erro = 0
         x = input('Letra: ').upper()
         if x not in ALFABETO or ALFABETO.index(x) > len(m)-1:
