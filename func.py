@@ -70,11 +70,23 @@ def encontra_coords(x, y):
 
 def adiciona_coords(m):
     m2 = deepcopy(m)
+    for i in m2:
+        for j in i:
+            if j == 'N':
+                j = CORES['white']
+            elif j == 'F':
+                j = CORES['red']
+            elif j == 'A':
+                j = CORES['blue']
+            else:
+                j = CORES['black']
+                
     ll = [' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
     ln = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     for i in range(len(m2)):
         m2[i].insert(0, ln[i])
     m2.insert(0, ll)
+    
     return m2
 
 def ataque_comp(m):
