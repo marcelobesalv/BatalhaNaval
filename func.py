@@ -78,22 +78,23 @@ def adiciona_coords(m):
     return m2
 
 def ataque_comp(m):
-    y = random.randint(0, len(m)-1)
-    x = random.randint(0, len(m)-1)
-    if m[y][x] == 'N':
-        print(f'Computador atacou {encontra_coords(x, y)}: fogo!')
-        m[y][x] = 'F'
-        print('Mapa do jogador:')
-        for k in adiciona_coords(m):
-            print(k)
-        return m
-    elif m[y][x] == ' ':
-        print(f'Computador atacou {encontra_coords(x, y)}: água!')
-        m[y][x] = 'A'
-        print('Mapa do jogador:')
-        for k in adiciona_coords(m):
-            print(k)
-        return m
+    while True:
+        y = random.randint(0, len(m)-1)
+        x = random.randint(0, len(m)-1)
+        if m[y][x] == 'N':
+            print(f'Computador atacou {encontra_coords(x, y)}: fogo!')
+            m[y][x] = 'F'
+            print('Mapa do jogador:')
+            for k in adiciona_coords(m):
+                print(k)
+            return m
+        elif m[y][x] == ' ':
+            print(f'Computador atacou {encontra_coords(x, y)}: água!')
+            m[y][x] = 'A'
+            print('Mapa do jogador:')
+            for k in adiciona_coords(m):
+                print(k)
+            return m
         
 def ataque(m):
     while True:
