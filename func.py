@@ -18,12 +18,10 @@ def posicao_suporta(m, t, l, c, o):
 def aloca_navios(m, ln):
     counter, i = 0, 0
     while i < len(ln):
-        print('a')
         l = random.randint(0, len(m)-ln[i])
         c = random.randint(0, len(m)-ln[i])
         o = random.choice(['h', 'v'])
         while not(posicao_suporta(m, ln[i], l, c, o)):
-            print('b')
             l = random.randint(0, len(m)-ln[i])
             c = random.randint(0, len(m)-ln[i])
             o = random.choice(['h', 'v'])
