@@ -13,6 +13,9 @@ while jogar:
   aloca_navios(mapc,cria_lista_navios(paisc))
   aloca_navios_jogador(mapj,cria_lista_navios(paisj))
   print('\n\nNavios posicionados, começando jogo!\n\n')
+  print('Mapa do jogador:')
+  for k in adiciona_coords(mapj):
+    print(k)
   while not foi_derrotado(mapc) and not foi_derrotado(mapj):
     ataque(mapc)
     ataque_comp(mapj)
