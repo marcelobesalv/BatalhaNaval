@@ -121,7 +121,7 @@ def ataque(m):
             y = int(y)
             y -= 1
             if m[y][x] == 'N':
-                print(f'/nJogador atacou {encontra_coords(x, y)}: fogo!')
+                print(f'\nJogador atacou {encontra_coords(x, y)}: fogo!')
                 m[y][x] = 'F'
                 return m
             elif m[y][x] == ' ':
