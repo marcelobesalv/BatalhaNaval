@@ -70,16 +70,16 @@ def encontra_coords(x, y):
 
 def adiciona_coords(m):
     m2 = deepcopy(m)
-    for i in m2:
-        for j in i:
-            if j == 'N':
-                j = CORES['white']
-            elif j == 'F':
-                j = CORES['red']
-            elif j == 'A':
-                j = CORES['blue']
+    for i in range(len(m2)):
+        for j in range(len(m2[0])):
+            if m2[i][j] == 'N':
+                m2[i][j] = u'\u001b[37m'
+            elif m2[i][j] == 'F':
+                m2[i][j] = u'\u001b[31m'
+            elif m2[i][j] == 'A':
+                m2[i][j] = u'\u001b[34m'
             else:
-                j = CORES['black']
+                m2[i][j] = u'\u001b[30m'
                 
     ll = [' ','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
     ln = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
