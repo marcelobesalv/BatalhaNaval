@@ -27,7 +27,7 @@ def aloca_navios(m, ln):
             o = random.choice(['h', 'v'])
             counter += 1
             if counter > 100:
-                i = 0
+                counter, i = 0, 0
                 break
         if posicao_suporta(m, ln[i], l, c, o):  
             for j in range(ln[i]):
