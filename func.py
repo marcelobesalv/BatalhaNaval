@@ -100,9 +100,6 @@ def ataque_comp(m):
 def ataque(m):
     while True:
         mc = deepcopy(m)
-        print('Mapa do computador (gabarito):')
-        for i in adiciona_coords(m):
-            print(i)
         print('Mapa do computador:')
         for i in range(len(mc)):
             for j in range(len(mc[i])):
